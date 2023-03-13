@@ -1,4 +1,4 @@
-from Client import Client
+from src.testlab_sdk_python.Client import Client
 
 class Config:
     def __init__(self, server_address, interval):

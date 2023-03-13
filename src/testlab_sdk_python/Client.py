@@ -1,4 +1,4 @@
-from assignment_logic import *
+from src.testlab_sdk_python.assignment_logic import *
 import uuid
 import requests
 import time
