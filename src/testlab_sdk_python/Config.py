@@ -7,7 +7,6 @@ class Config:
 
     def connect(self):
         client = Client(self)
-        client.fetch_features()
-        client.add_default_context()
         client.start_in_background()
+        client.add_default_context()
         return client

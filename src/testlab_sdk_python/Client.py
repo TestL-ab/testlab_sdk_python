@@ -65,7 +65,7 @@ class Client:
 
     def fetch_features(self):
         features = None
-        lastModified = datetime.datetime.utcnow() - datetime.timedelta(seconds=self.config.interval / 1000)
+        last_modified = datetime.utcnow() - timedelta(seconds=self.config.interval)
         try:
             if not self.features:
                 response = requests.get(f"{self.config.server_address}/api/feature/current")
@@ -74,7 +74,7 @@ class Client:
                 return features
             else:
                 headers = {
-                  "If-Modified-Since": lastModified.strftime('%a, %d %b %Y %H:%M:%S GMT')
+                  "If-Modified-Since": last_modified.strftime('%a, %d %b %Y %H:%M:%S GMT')
                 }
                 url = f"{self.config.server_address}/api/feature/current"
                 response = requests.get(url, headers=headers)
